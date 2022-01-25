@@ -1,0 +1,11 @@
+configuration {
+ modi: "window,drun,ssh,combi";
+ font: "System San Francisco Display 18";
+ combi-modi: "window,drun,ssh";
+ lines: 5;
+ padding: 100;
+ bw: 0;
+ color-window: "#222222, #7c8389, #1d1f21";
+ color-normal: "#222222, #f3f4f5, #222222, #222222, #9575cd";
+ }
+

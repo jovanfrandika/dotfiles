@@ -6,13 +6,25 @@ endif
 
 call plug#begin(g:pluggedPath)
   " Autocompletion
-  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'saadparwaiz1/cmp_luasnip'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-nvim-lua'
+
+  " LSP Support
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
+
+  " LSP Setup
+  Plug 'VonHeikemen/lsp-zero.nvim'
 
   " Easymotion
   Plug 'easymotion/vim-easymotion'
 
   " Theme
-  Plug 'tomasiser/vim-code-dark'
+  Plug 'joshdick/onedark.vim'
   Plug 'itchyny/lightline.vim'
   Plug 'ryanoasis/vim-devicons'
   Plug 'coreyja/fzf.devicon.vim'
@@ -32,15 +44,14 @@ call plug#begin(g:pluggedPath)
   Plug 'yggdroot/indentline'
   Plug 'jiangmiao/auto-pairs'
   Plug 'alvan/vim-closetag'
-  Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
   " Snippets
-  Plug 'honza/vim-snippets'
+  Plug 'L3MON4D3/LuaSnip'
+  Plug 'rafamadriz/friendly-snippets'
 
   " Language Syntax
   Plug 'yuezk/vim-js', { 'for': ['javascript', 'javascriptreact'] }
@@ -51,7 +62,5 @@ call plug#begin(g:pluggedPath)
   Plug 'jparise/vim-graphql'
 
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-  Plug 'dag/vim-fish', { 'for': 'fish' }
 
 call plug#end()

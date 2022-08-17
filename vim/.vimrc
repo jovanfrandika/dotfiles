@@ -32,7 +32,7 @@ set t_Co=256
 
 " Set vim theme 
 set termguicolors
-colorscheme codedark
+colorscheme onedark
 
 " Cursor style
 set cursorline
@@ -122,8 +122,13 @@ let g:indentLine_color_gui = '#616161'
 
 source ~/.config/nvim/gitgutter.vim
 source ~/.config/nvim/svelte.vim
-source ~/.config/nvim/hexokinase.vim
 source ~/.config/nvim/vim-closetag.vim
 source ~/.config/nvim/defx.vim
 source ~/.config/nvim/fzf.vim
-source ~/.config/nvim/coc.vim
+
+lua <<EOF
+local lsp = require('lsp-zero')
+
+lsp.preset('recommended')
+lsp.setup()
+EOF

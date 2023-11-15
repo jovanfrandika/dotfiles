@@ -5,6 +5,11 @@ if empty(glob(g:plugInstallPath))
 endif
 
 call plug#begin(g:pluggedPath)
+  " LSP
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
+  Plug 'VonHeikemen/lsp-zero.nvim'
+
   " Autocompletion
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-buffer'
@@ -13,37 +18,24 @@ call plug#begin(g:pluggedPath)
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-nvim-lua'
 
-  " LSP Support
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/nvim-lsp-installer'
-
-  " LSP Setup
-  Plug 'VonHeikemen/lsp-zero.nvim'
-
-  " Easymotion
-  Plug 'easymotion/vim-easymotion'
-
   " Theme
   Plug 'joshdick/onedark.vim'
   Plug 'itchyny/lightline.vim'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'coreyja/fzf.devicon.vim'
+  Plug 'nvim-tree/nvim-web-devicons'
 
   " File Explorer
-  Plug 'Shougo/defx.nvim'
-  Plug 'kristijanhusak/defx-icons'
-  Plug 'kristijanhusak/defx-git'
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.4' }
+  Plug 'nvim-telescope/telescope-file-browser.nvim'
+  Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
-  " Search helpers
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-  Plug 'airblade/vim-rooter'
-
-  " Editing helpers
+  " Editing
   Plug 'tpope/vim-commentary' 
   Plug 'yggdroot/indentline'
   Plug 'jiangmiao/auto-pairs'
   Plug 'alvan/vim-closetag'
+  Plug 'folke/trouble.nvim'
+  Plug 'easymotion/vim-easymotion'
 
   " Git
   Plug 'tpope/vim-fugitive'
@@ -52,15 +44,5 @@ call plug#begin(g:pluggedPath)
   " Snippets
   Plug 'L3MON4D3/LuaSnip'
   Plug 'rafamadriz/friendly-snippets'
-
-  " Language Syntax
-  Plug 'yuezk/vim-js', { 'for': ['javascript', 'javascriptreact'] }
-  Plug 'leafgarland/typescript-vim', { 'for': ['typescript', 'typescriptreact'] }
-  Plug 'maxmellon/vim-jsx-pretty', { 'for': 'javascriptreact' }
-  Plug 'evanleck/vim-svelte', {'branch': 'main'}
-
-  Plug 'jparise/vim-graphql'
-
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()

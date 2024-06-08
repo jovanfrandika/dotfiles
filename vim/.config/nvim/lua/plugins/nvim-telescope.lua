@@ -9,6 +9,7 @@ return {
   opts = function()
     local actions = require("telescope.actions")
     local fb_actions = require("telescope").extensions.file_browser.actions
+    local additional_rg_args = { "--hidden", "--glob", "!**/.git/*", "--glob", "!**/node_modules/*" }
 
     return {
       defaults = {
@@ -43,10 +44,13 @@ return {
           show_line = false,
         },
         find_files = {
-          hidden = true,
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
         },
         live_grep = {
-          additional_args = { "--hidden" },
+          additional_args = additional_args,
+        },
+        grep_string = {
+          additional_args = additional_args,
         },
       },
       extensions = {
@@ -66,6 +70,8 @@ return {
             },
             n = {
               ["h"] = fb_actions.goto_parent_dir,
+              ["m"] = fb_actions.move,
+              ["y"] = fb_actions.copy,
               ["l"] = actions.select_default,
               ["H"] = fb_actions.toggle_hidden,
               ["N"] = fb_actions.create,
@@ -88,4 +94,3 @@ return {
     { "<leader>fp", "<CMD>Telescope project<CR>", noremap = true },
   },
 }
-
